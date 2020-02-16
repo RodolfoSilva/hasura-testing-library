@@ -230,7 +230,7 @@ const startNodeApp = (testId: string) =>
     }
   });
 
-const main = async () => {
+export const run = async () => {
   const testId = `test_${sha1(`${Date.now() + Math.random()}`)}`;
 
   const stopAll = async () => {
@@ -274,5 +274,3 @@ const main = async () => {
     process.exit(1);
   }
 };
-
-main();

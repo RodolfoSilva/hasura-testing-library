@@ -1,0 +1,14 @@
+{
+  "name": "hasura-testing-library-example",
+  "version": "0.0.1",
+  "description": "Library to help test hasura apps",
+  "main": "index.js",
+  "author": "Rodolfo Silva",
+  "license": "MIT",
+  "scripts": {
+    "test": "node node_modules/hasura-testing-library/dist/index.js"
+  },
+  "dependencies": {
+    "hasura-testing-library": "../"
+  }
+}
