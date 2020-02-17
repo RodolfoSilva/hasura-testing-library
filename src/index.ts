@@ -27,13 +27,13 @@ const until = async (
   }
 };
 
-var docker = new Docker();
+const docker = new Docker();
 
 function runExec(container: any, options: any) {
   return new Promise((resolve, reject) => {
-    container.exec(options, function(err: any, exec: any) {
+    container.exec(options, (err: any, exec: any) => {
       if (err) return reject(err);
-      exec.start(function(err: any, stream: any) {
+      exec.start((err: any, stream: any) => {
         if (err) return reject(err);
 
         container.modem.demuxStream(stream, process.stdout, process.stderr);
@@ -41,7 +41,7 @@ function runExec(container: any, options: any) {
 
       const inspectUntilStopRuning = () => {
         setTimeout(() => {
-          exec.inspect(function(err: any, data: any) {
+          exec.inspect((err: any, data: any) => {
             if (err) return reject(err);
 
             if (data.Running) return inspectUntilStopRuning();
@@ -155,7 +155,7 @@ const startHasura = (testId: string) =>
     await container.start();
 
     try {
-      console.log('Check hasura is avaliable');
+      // console.log('Check hasura is avaliable');
       await until(
         () =>
           runExec(container, {

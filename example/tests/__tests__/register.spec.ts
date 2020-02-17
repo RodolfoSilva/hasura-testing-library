@@ -9,12 +9,12 @@ type GraphqlResponse<T> = {
 };
 
 export default function createGraphqlClient<ResponseT = any, VariableT = any>(
-  url: string,
+  url: string
 ) {
   return async (
     query: string | DocumentNode,
     variables: VariableT = {} as any,
-    headers?: HeadersInit,
+    headers?: HeadersInit
   ): Promise<GraphqlResponse<ResponseT>> => {
     const response = await fetch(url, {
       method: 'POST',
@@ -41,7 +41,7 @@ const insertInto = async (tableName: String, data: any) => {
     `mutation ($object: [${tableName}_insert_input!]!) { insert_${tableName}(objects: $object) { returning { id } } }`,
     {
       object: data,
-    },
+    }
   );
 
   return response?.data?.[`insert_${tableName}`]?.returning[0]?.id;
@@ -67,7 +67,7 @@ describe('User', () => {
           }
         }
       `,
-      {},
+      {}
     );
 
     expect(users.data.user).toHaveLength(0);
@@ -94,7 +94,7 @@ describe('User', () => {
         organization_id: organizationId,
         email: userEmail,
         password: 'TeaWithMe',
-      },
+      }
     );
 
     expect(user).toEqual({ data: { auth_register: { affected_rows: 1 } } });
@@ -114,7 +114,7 @@ describe('User', () => {
             _eq: userEmail,
           },
         },
-      },
+      }
     );
 
     expect(registredUser.data.user).toHaveLength(1);

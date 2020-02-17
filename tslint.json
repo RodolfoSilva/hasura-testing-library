@@ -1,0 +1,11 @@
+{
+  "extends": ["tslint:recommended", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["node_modules/**/*.ts", "dist/**/*.ts"]
+  },
+  "rules": {
+    "only-arrow-functions": false,
+    "no-shadowed-variable": false,
+    "no-console": false
+  }
+}

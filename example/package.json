@@ -6,7 +6,7 @@
   "author": "Rodolfo Silva",
   "license": "MIT",
   "scripts": {
-    "test": "node node_modules/hasura-testing-library/dist/index.js"
+    "test": "hasura-testing-library"
   },
   "dependencies": {
     "hasura-testing-library": "../"
